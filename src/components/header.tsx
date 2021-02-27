@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import {Dropdown} from "react-bootstrap"
 import "../assets/css/header.css";
 import gardenlogo from "../assets/img/edutech_logo.svg";
 
@@ -83,14 +83,26 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                       </Link>
                     </li>
                     <li className="hs-has-mega-menu navbar-nav-item">
-                      <Link
+                      {/* <Link
                         id="homeMegaMenu"
                         className="hs-mega-menu-invoker nav-link"
                         to="/programs"
                       >
                         Programs
-                      </Link>
+                      </Link> */}
+                      <Dropdown>
+  <Dropdown.Toggle variant="none" id="dropdown-basic" style={{color:"#0D0F11 !important"}}>
+    Programs
+  </Dropdown.Toggle>
+
+  <Dropdown.Menu>
+    <Dropdown.Item href="/vigilearn">VigiLearn</Dropdown.Item>
+    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+  </Dropdown.Menu>
+</Dropdown>
                     </li>
+
 
                     <li className="hs-has-mega-menu navbar-nav-item">
                       <Link

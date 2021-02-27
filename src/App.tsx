@@ -11,7 +11,7 @@ import AppNotFoundPage from "./pages/not-found-page";
 import AppBlog from "./pages/blog";
 import AppForEmployers from "./pages/for-employers";
 import AppFAQ from "./pages/faq";
-
+import AppVigilearnPage from "./pages/vigilearn"
 import ScrollToTop from "./helpers/scrollToTheTop";
 import AppBlogSingle from "./pages/blog-single";
 
@@ -34,6 +34,7 @@ const App: React.SFC<AppProps> = () => {
           <Route path="/contact" component={AppContactUsPage}></Route>
           <Route path="/programs" component={AppProgramsPage}></Route>
           <Route path="/details" component={AppCourseDetails}></Route>
+          <Route path="/vigilearn" component={AppVigilearnPage}></Route>
           <Route path="" component={AppNotFoundPage}></Route>
         </Switch>
         <AppFooter></AppFooter>
