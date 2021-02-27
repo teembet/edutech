@@ -4,32 +4,20 @@ import Socials from "../components/socials";
 export interface AppContactUsPageProps {}
 
 const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
-  const [firstName, setFirstName] = useState("");
-  const [firstNameValid, setFirstNameValid] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [lastNameValid, setLastNameValid] = useState("");
+  const [name, setName] = useState("");
+  const [nameValid, setNameValid] = useState("");
   const [email, setEmail] = useState("");
   const [emailValid, setEmailValid] = useState("");
-  const [subject, setSubject] = useState("");
-  const [subjectValid, setSubjectValid] = useState("");
   const [message, setMessage] = useState("");
   const [messageValid, setMessageValid] = useState("");
 
   const handleSubmit = () => {
-    if (firstNameValidation(firstName) !== true) {
-      return firstNameValidation(firstName);
-    }
-
-    if (lastNameValidation(lastName) !== true) {
-      return lastNameValidation(lastName);
+    if (nameValidation(name) !== true) {
+      return nameValidation(name);
     }
 
     if (emailValidation(email) !== true) {
       return emailValidation(email);
-    }
-
-    if (subjectValidation(subject) !== true) {
-      return subjectValidation(subject);
     }
 
     if (messageValidation(message) !== true) {
@@ -39,42 +27,22 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
     alert("Success");
   };
 
-  const firstNameValidation = (fieldValue: string): boolean => {
+  const nameValidation = (fieldValue: string): boolean => {
     if (fieldValue.trim() === "") {
-      setFirstNameValid(`First name is required`);
+      setNameValid(`First name is required`);
       return false;
     }
 
     if (/[^a-zA-Z -]/.test(fieldValue)) {
-      setFirstNameValid("Invalid characters");
+      setNameValid("Invalid characters");
       return false;
     }
 
     if (fieldValue.trim().length < 3) {
-      setFirstNameValid(`First name needs to be at least three characters`);
+      setNameValid(`First name needs to be at least three characters`);
       return false;
     }
-    setFirstNameValid("");
-    return true;
-  };
-
-  const lastNameValidation = (fieldValue: string): boolean => {
-    if (fieldValue.trim() === "") {
-      setLastNameValid(`Last name is required`);
-      return false;
-    }
-
-    if (/[^a-zA-Z -]/.test(fieldValue)) {
-      setLastNameValid("Invalid characters");
-      return false;
-    }
-
-    if (fieldValue.trim().length < 3) {
-      setLastNameValid(`Last name needs to be at least three characters`);
-      return false;
-    }
-
-    setLastNameValid("");
+    setNameValid("");
     return true;
   };
 
@@ -93,21 +61,6 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
     }
     setEmailValid("Please enter a valid email");
     return false;
-  };
-
-  const subjectValidation = (fieldValue: string): boolean => {
-    if (fieldValue.trim() === "") {
-      setSubjectValid(`Subject is required`);
-      return false;
-    }
-
-    if (fieldValue.trim().length < 10) {
-      setSubjectValid(`Subject needs to be at least ten characters`);
-      return false;
-    }
-
-    setSubjectValid("");
-    return true;
   };
 
   const messageValidation = (fieldValue: string): boolean => {
@@ -159,97 +112,40 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
             <div className="space-right-3 space-top-3 space-bottom-2 col-md-6">
               <div className="mb-4">
                 <h2 className="text-primary">
-                  You can reach us via any of these mediums.
+                  Need Information? <br />
+                  Ask Questions!
                 </h2>
               </div>
-
-              <ul className="nav nav-sm nav-x-0 nav-white flex-column">
-                <h5>Telephone</h5>
-                <li className="nav-item">
-                  <a className="nav-link media" href="tel:+2348036670001">
-                    <span className="media">
-                      <span className="fas fa-phone-alt mt-1 mr-2"></span>
-                      <span className="media-bodys">
-                        +234 [0] 803 667 0001 &nbsp;&nbsp;
-                        <br /> +234 [0] 803 667 0001
-                      </span>
-                    </span>
-                  </a>
-                </li>
-                <br />
-
-                <h5>Email Address</h5>
-                <li className="nav-item">
-                  <a
-                    className="nav-link media"
-                    href="mailto:contactus@gardenacademy.com"
-                  >
-                    <span className="media">
-                      <span className="fas fa-phone-alt mt-1 mr-2"></span>
-                      <span className="media-bodys">
-                        contactus@gardenacademy.com
-                      </span>
-                    </span>
-                  </a>
-                </li>
-                <br />
-                <h5>Office Address</h5>
-                <li className="nav-item">
-                  <a className="nav-link media" href="/contact">
-                    <span className="media">
-                      <span className="fas fa-location-arrow mt-1 mr-2"></span>
-                      <span className="media-bodys">
-                        Vibranium Vally 42, Local Airport Road, Ikeja Lagos
-                      </span>
-                    </span>
-                  </a>
-                </li>
-              </ul>
               <br />
-              <Socials></Socials>
+              <p style={{ paddingRight: "15%" }}>
+                In order to best serve you, please note that our support team is
+                available from Monday to Friday between the hours of 9 am and 5
+                pm (WAT). All inquiries will be responded to in one business
+                day.
+              </p>
             </div>
 
             <div className="space-top-2 space-bottom-2 col-md-6">
               <form className="js-validate">
                 <div className=" p-4 p-md-6">
                   <div className="row">
-                    <div className="col-sm-6">
+                    <div className="col-sm-12">
                       <div className="js-form-message form-group">
                         <label htmlFor="firstName" className="input-label">
-                          First name <span className="text-danger">*</span>
+                          Name <span className="text-danger">*</span>
                         </label>
                         <input
                           type="text"
                           className="form-control"
                           name="firstName"
                           id="firstName"
-                          placeholder="eg. Nataly"
+                          placeholder="eg. Kingsley Omin"
                           required
-                          value={firstName}
-                          onChange={(e) => setFirstName(e.target.value)}
-                          onBlur={(e) => firstNameValidation(e.target.value)}
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          onBlur={(e) => nameValidation(e.target.value)}
                         />
-                        <p className="text-danger">{firstNameValid}</p>
-                      </div>
-                    </div>
-
-                    <div className="col-sm-6">
-                      <div className="js-form-message form-group">
-                        <label htmlFor={"lastName"} className="input-label">
-                          Last name <span className="text-danger">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="lastName"
-                          id="lastName"
-                          placeholder="eg. Gaga"
-                          required
-                          value={lastName}
-                          onChange={(e) => setLastName(e.target.value)}
-                          onBlur={(e) => lastNameValidation(e.target.value)}
-                        />
-                        <p className="text-danger">{lastNameValid}</p>
+                        <p className="text-danger">{nameValid}</p>
                       </div>
                     </div>
 
@@ -275,26 +171,6 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
 
                     <div className="col-sm-12">
                       <div className="js-form-message form-group">
-                        <label htmlFor={"emailAddress"} className="input-label">
-                          Subject <span className="text-danger">*</span>
-                        </label>
-                        <input
-                          type="text"
-                          className="form-control"
-                          name="emailAddress"
-                          id="emailAddress"
-                          placeholder="eg. Facilitator enquiry"
-                          required
-                          value={subject}
-                          onChange={(e) => setSubject(e.target.value)}
-                          onBlur={(e) => subjectValidation(e.target.value)}
-                        />
-                        <p className="text-danger">{subjectValid}</p>
-                      </div>
-                    </div>
-
-                    <div className="col-sm-12">
-                      <div className="js-form-message form-group">
                         <label htmlFor={"message"} className="input-label">
                           How can we help you
                           <span className="text-danger">*</span>
@@ -312,12 +188,12 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
                             onBlur={(e) => messageValidation(e.target.value)}
                           ></textarea>
                         </div>
-                        <p>This field is limited to 300 characters</p>
                         <p className="text-danger">{messageValid}</p>
+                        <p>This field is limited to 300 characters</p>
                       </div>
                     </div>
                   </div>
-
+                  <br />
                   <button
                     type="button"
                     style={{ background: "#0F42A4", borderRadius: "2px" }}
@@ -331,6 +207,13 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div style={{ display: "none" }}>
+        * Edutech Project <br />
+        * Done By Satowind (Ogugua Tochukwu) <br />
+        * 08038385263, Evensatowind@gmail.com <br />
+        *Satoseries (Web app and mobile App engineering) <br />* For Ventures
+        Garden Group
       </div>
     </main>
   );

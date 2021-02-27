@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import "../assets/css/header.css";
-import gardenlogo from "../assets/img/garden-logo.svg";
+import gardenlogo from "../assets/img/edutech_logo.svg";
 
 export interface AppHeaderProps {}
 
@@ -12,10 +12,10 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
 
   let background =
     location.pathname == "/"
-      ? "#FDF2E7"
+      ? "#EAFBF1"
       : location.pathname == "/employers"
       ? "#EAFBF1"
-      : "#E8EFFD";
+      : "#EAFBF1";
 
   return (
     <React.Fragment>

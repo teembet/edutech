@@ -9,71 +9,12 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
   return (
     <React.Fragment>
       <footer className="bg-dark" style={{ backgroundColor: "F0F0F0" }}>
-        <div
-          className=" d-lg-flex position-relative session-three"
-          style={{ marginTop: "0" }}
-        >
-          <div className="container space-2">
-            <div
-              className="row"
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <div
-                className="col-sm-2"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <img src={alert} alt="" className="blink_me img-fluid" />
-              </div>
-              <div
-                className="col-sm-8"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <h2 className="font-weight-bold white-text text-center">
-                  Book your seat at the next free Masterclass.
-                </h2>
-                <br />
-              </div>
-              <div
-                className="col-sm-2"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-              >
-                <a
-                  href="https://forms.gle/veSsg5gphcXwptQz8"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-block get-started-btn"
-                >
-                  Book Now
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="container">
           <div className="space-top-2 space-bottom-1 space-bottom-lg-2">
             <div className="row justify-content-lg-between">
               <div className="col-md-3">
                 <div className="mb-4">
-                  <h2 className="text-primary">
-                    Garden <br />
-                    Academy
-                  </h2>
+                  <h2 className="text-primary">EduTech</h2>
                 </div>
                 {/* <!-- End Logo -->
 
