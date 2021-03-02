@@ -29,13 +29,17 @@ const AppBlog: React.SFC<AppBlogProps> = () => {
     <>
       <main>
         <div className="hero-page-about">
-          <h1 className="d-none d-sm-block">Garden Academy Blog</h1>
+          <h1 className="d-none d-sm-block text-primary">
+            Garden Academy Blog
+          </h1>
 
           <p className="d-none d-sm-block">
             Check out our Blog to stay up to date with great contents
           </p>
 
-          <h4 className="d-block d-sm-none">Garden Academy Blog</h4>
+          <h3 className="d-block d-sm-none text-primary">
+            Garden Academy Blog
+          </h3>
 
           <p className="d-block d-sm-none" style={{ fontSize: ".9em" }}>
             Check out our Blog to stay up to date with great contents

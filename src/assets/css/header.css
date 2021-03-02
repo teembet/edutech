@@ -14,8 +14,10 @@
   /* background: #051A52; */
 }
 
-.active {
+.dropdown-menu > .active {
   color: darkblue !important;
+  border-bottom: 4px solid #0f42a4 !important;
+  border-radius: 10px;
 }
 
 .navbar-toggler {

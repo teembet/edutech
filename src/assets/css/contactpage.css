@@ -7,11 +7,20 @@
 } */
 
 .hero-page {
-  height: 50vh;
+  height: 80vh;
   width: 100%;
   position: absolute;
   top: 0;
   right: 0;
+  background: #eafbf1;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hero-pages {
+  height: 80vh;
   background: #eafbf1;
   display: flex;
   justify-content: center;

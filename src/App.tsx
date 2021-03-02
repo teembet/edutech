@@ -9,11 +9,13 @@ import AppProgramsPage from "./pages/programs-page";
 import AppCourseDetails from "./pages/course-details-page";
 import AppNotFoundPage from "./pages/not-found-page";
 import AppBlog from "./pages/blog";
-import AppForEmployers from "./pages/for-employers";
+import AppPartners from "./pages/partners";
 import AppFAQ from "./pages/faq";
-import AppVigilearnPage from "./pages/vigilearn"
+import AppVigiLearnPage from "./pages/vigi-learn";
 import ScrollToTop from "./helpers/scrollToTheTop";
 import AppBlogSingle from "./pages/blog-single";
+import AppEduCollectPage from "./pages/edu-collect";
+import AppGardenAcademy from "./pages/garden-academy";
 
 export interface AppProps {}
 
@@ -26,7 +28,7 @@ const App: React.SFC<AppProps> = () => {
         <AppHeader></AppHeader>
         <Switch>
           <Route path="/" exact component={AppHomePage}></Route>
-          <Route path="/employers" component={AppForEmployers}></Route>
+          <Route path="/partners" component={AppPartners}></Route>
           <Route path="/blog" component={AppBlog}></Route>
           <Route path="/blog-details" component={AppBlogSingle}></Route>
           <Route path="/faq" component={AppFAQ}></Route>
@@ -34,7 +36,9 @@ const App: React.SFC<AppProps> = () => {
           <Route path="/contact" component={AppContactUsPage}></Route>
           <Route path="/programs" component={AppProgramsPage}></Route>
           <Route path="/details" component={AppCourseDetails}></Route>
-          <Route path="/vigilearn" component={AppVigilearnPage}></Route>
+          <Route path="/vigi-learn" component={AppVigiLearnPage}></Route>
+          <Route path="/edu-Collect" component={AppEduCollectPage}></Route>
+          <Route path="/garden-academy" component={AppGardenAcademy}></Route>
           <Route path="" component={AppNotFoundPage}></Route>
         </Switch>
         <AppFooter></AppFooter>

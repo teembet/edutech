@@ -1,5 +1,5 @@
 .hero {
-  background-color: #fdf2e7;
+  background-color: #eafbf1;
 }
 
 .card-icon {
@@ -21,7 +21,49 @@
 }
 
 .card-body {
-  text-align: left;
+  text-align: center;
+}
+
+.card-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.span-icon > img {
+  background: #fad7b8;
+  width: 30px;
+  height: 30px;
+}
+
+.span-icon {
+  background: #fad7b8;
+  padding: 40% !important;
+  border-radius: 50%;
+}
+
+.span-icons > img {
+  background: #b9cff9;
+  width: 30px;
+  height: 30px;
+}
+
+.span-icons {
+  background: #b9cff9;
+  padding: 40% !important;
+  border-radius: 50%;
+}
+
+.span-iconss > img {
+  background: #c0f2d4;
+  width: 30px;
+  height: 30px;
+}
+
+.span-iconss {
+  background: #c0f2d4;
+  padding: 40% !important;
+  border-radius: 50%;
 }
 
 .session-three {
@@ -149,8 +191,8 @@
 }
 
 .avatar {
-  height: 50px;
-  width: 50px;
+  height: 80px;
+  width: 80px;
   border-radius: 50%;
 }
 

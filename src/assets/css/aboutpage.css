@@ -1,7 +1,7 @@
 .hero-page-about {
-  /* height: 50vh; */
+  height: 80vh;
   width: 100%;
-  background: #e8effd;
+  background: #eafbf1;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,8 +46,4 @@
 
 .img-data {
   width: 100%;
-}
-.btn {
-  color: #000 !important;
-  font-weight: 400 !important;
 }

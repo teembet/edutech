@@ -74,48 +74,18 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
 
                 <ul className="nav nav-sm nav-x-0 nav-white flex-column">
                   <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Data Analyst
+                    <a className="nav-link nav-footer" href="/">
+                      VigiLearn
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Business Analyst
+                    <a className="nav-link nav-footer" href="/">
+                      EduCollect
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Product Design
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Product Manager
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Operations Manager in Tech
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Financial Advisory for Tech
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Digital Transformation Expert
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Legal for Tech
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="front.html#">
-                      Engineering Leadership
+                    <a className="nav-link nav-footer" href="/">
+                      Garden Academy
                     </a>
                   </li>
                 </ul>

@@ -82,13 +82,10 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
     <main id="content" role="main">
       <div className="hero-page">
         <h1 className="d-none d-sm-block">Contact Us</h1>
-        <h4 className="d-block d-sm-none">Contact Us</h4>
+        <h2 className="d-block d-sm-none">Contact Us</h2>
         <p>&nbsp;</p>
         <p>&nbsp;</p>
       </div>
-      <br className="d-block d-lg-none" />
-      <br className="d-block d-lg-none" />
-      <br className="d-block d-lg-none" />
       <br className="d-block d-lg-none" />
       <br className="d-block d-lg-none" />
       <br className="d-block d-lg-none" />

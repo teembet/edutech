@@ -1,7 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {Dropdown} from "react-bootstrap"
 import "../assets/css/header.css";
 import gardenlogo from "../assets/img/edutech_logo.svg";
 
@@ -82,36 +81,53 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                         About Us
                       </Link>
                     </li>
-                    <li className="hs-has-mega-menu navbar-nav-item">
-                      {/* <Link
-                        id="homeMegaMenu"
-                        className="hs-mega-menu-invoker nav-link"
-                        to="/programs"
+
+                    <li className="nav-item dropdown">
+                      <div
+                        className="nav-item nav-link dropdown-toggle mr-md-2"
+                        id="bd-versions"
+                        data-toggle="dropdown"
+                        aria-haspopup="true"
+                        aria-expanded="false"
                       >
                         Programs
-                      </Link> */}
-                      <Dropdown>
-  <Dropdown.Toggle variant="none" id="dropdown-basic" style={{color:"#0D0F11 !important"}}>
-    Programs
-  </Dropdown.Toggle>
-
-  <Dropdown.Menu>
-    <Dropdown.Item href="/vigilearn">VigiLearn</Dropdown.Item>
-    <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-    <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-  </Dropdown.Menu>
-</Dropdown>
-                    </li>
-
-
-                    <li className="hs-has-mega-menu navbar-nav-item">
-                      <Link
-                        id="homeMegaMenu"
-                        className="hs-mega-menu-invoker nav-link"
-                        to="/employers"
+                      </div>
+                      <div
+                        className="dropdown-menu dropdown-menu-right"
+                        aria-labelledby="bd-versions"
                       >
-                        For Employers
-                      </Link>
+                        <Link
+                          className={
+                            location.pathname === "/vigi-learn"
+                              ? "dropdown-item active"
+                              : "dropdown-item"
+                          }
+                          to="/vigi-learn"
+                        >
+                          Vigil learn
+                        </Link>
+                        <Link
+                          className={
+                            location.pathname === "/edu-collect"
+                              ? "dropdown-item active"
+                              : "dropdown-item"
+                          }
+                          to="/edu-collect"
+                        >
+                          Edu Collect
+                        </Link>
+
+                        <Link
+                          className={
+                            location.pathname === "/garden-academy"
+                              ? "dropdown-item active"
+                              : "dropdown-item"
+                          }
+                          to="/garden-academy"
+                        >
+                          Garden Academy
+                        </Link>
+                      </div>
                     </li>
 
                     <li className="hs-has-mega-menu navbar-nav-item">
@@ -121,6 +137,16 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                         to="/blog"
                       >
                         Blog
+                      </Link>
+                    </li>
+
+                    <li className="hs-has-mega-menu navbar-nav-item">
+                      <Link
+                        id="homeMegaMenu"
+                        className="hs-mega-menu-invoker nav-link"
+                        to="/partners"
+                      >
+                        Partners
                       </Link>
                     </li>
 

@@ -1,24 +1,15 @@
 import * as React from "react";
-import { Link } from "react-router-dom";
-import { Modal, Button } from "react-bootstrap";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import "../assets/css/homepage.css";
-import rectangle from "../assets/img/rectangle.svg";
-import facilitator from "../assets/img/facilitator.svg";
 import homehero from "../assets/img/home-hero.svg";
-import homehero2 from "../assets/img/home-hero2.svg";
-import homecard1 from "../assets/img/homecard1.svg";
-import homecard2 from "../assets/img/homecard2.svg";
-import homecard3 from "../assets/img/homecard3.svg";
-import homecard4 from "../assets/img/homecard4.svg";
-import homecard5 from "../assets/img/homecard5.svg";
-import homecard6 from "../assets/img/homecard6.svg";
-import womanPic from "../assets/img/woman.svg";
+import armor from "../assets/img/armor.svg";
+
 import person2 from "../assets/img/person2.svg";
+import cityscapes from "../assets/img/cityscapes.svg";
+import cityscapes2 from "../assets/img/cityscapes2.svg";
+import cityscapes3 from "../assets/img/cityscapes3.svg";
 import person1 from "../assets/img/person1.svg";
-import CourseCardGridView from "../components/course-card-grid-view";
-import Search from "../components/search";
 
 export interface AppHomePageProps {
   images: any;
@@ -26,30 +17,6 @@ export interface AppHomePageProps {
 }
 
 const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
-  const searchCourse = (searchInput: string) => {
-    if (searchInput.trim() === "") return;
-    history.push({
-      pathname: "/programs",
-      state: {
-        searchInput,
-      },
-    });
-  };
-
-  const [firstName, setFirstName] = useState("");
-  const [firstNameValid, setFirstNameValid] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [lastNameValid, setLastNameValid] = useState("");
-  const [phone, setPhone] = useState("");
-  const [phoneValid, setPhoneValid] = useState("");
-  const [email, setEmail] = useState("");
-  const [emailValid, setEmailValid] = useState("");
-  const [url, setUrl] = useState("");
-  const [urlValid, setUrlValid] = useState("");
-
-  const [showModal, setShowModal] = useState(false);
-  const [programs, setPrograms] = useState([]);
-
   const [images, setImages] = useState([
     {
       image: person1,
@@ -144,210 +111,47 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
     }
   };
 
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
-  const handleSubmit = () => {
-    if (firstNameValidation(firstName) !== true) {
-      return firstNameValidation(firstName);
-    }
-
-    if (lastNameValidation(lastName) !== true) {
-      return lastNameValidation(lastName);
-    }
-
-    if (phoneValidation(phone) !== true) {
-      return phoneValidation(phone);
-    }
-
-    if (emailValidation(email) !== true) {
-      return emailValidation(email);
-    }
-
-    if (urlValidation(url) !== true) {
-      return urlValidation(url);
-    }
-
-    handleClose();
-    alert("Success");
-  };
-
-  useEffect(() => {
-    const fetchPrograms = async () => {
-      const response = await fetch(
-        "https://demo.vigilearnlms.com/api/all/courses",
-        {
-          method: "POST", // *GET, POST, PUT, DELETE, etc.
-          mode: "cors", // no-cors, *cors, same-origin
-          cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-          credentials: "same-origin", // include, *same-origin, omit
-          headers: {
-            "Content-Type": "application/json",
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-          },
-          redirect: "follow", // manual, *follow, error
-          referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-          body: JSON.stringify({
-            username: "Tech@edutechng.com",
-            password: "Password_10",
-          }), // body data type must match "Content-Type" header
-        }
-      );
-
-      let loginData = await response.json();
-      if (loginData.status) {
-        console.log(loginData.data);
-        setPrograms(loginData.data);
-      }
-    };
-
-    fetchPrograms();
-  }, []);
-
-  const firstNameValidation = (fieldValue: string): boolean => {
-    if (fieldValue.trim() === "") {
-      setFirstNameValid(`First name is required`);
-      return false;
-    }
-
-    if (/[^a-zA-Z -]/.test(fieldValue)) {
-      setFirstNameValid("Invalid characters");
-      return false;
-    }
-
-    if (fieldValue.trim().length < 3) {
-      setFirstNameValid(`First name needs to be at least three characters`);
-      return false;
-    }
-    setFirstNameValid("");
-    return true;
-  };
-
-  const lastNameValidation = (fieldValue: string): boolean => {
-    if (fieldValue.trim() === "") {
-      setLastNameValid(`Last name is required`);
-      return false;
-    }
-
-    if (/[^a-zA-Z -]/.test(fieldValue)) {
-      setLastNameValid("Invalid characters");
-      return false;
-    }
-
-    if (fieldValue.trim().length < 3) {
-      setLastNameValid(`Last name needs to be at least three characters`);
-      return false;
-    }
-
-    setLastNameValid("");
-    return true;
-  };
-
-  const emailValidation = (email: string): boolean => {
-    if (
-      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
-        email
-      )
-    ) {
-      setEmailValid("");
-      return true;
-    }
-    if (email.trim() === "") {
-      setEmailValid("Email is required");
-      return false;
-    }
-    setEmailValid("Please enter a valid email");
-    return false;
-  };
-
-  const phoneValidation = (phone: string): boolean => {
-    if (/^[0]\d{10}$/.test(phone)) {
-      setPhoneValid("");
-      return true;
-    }
-    if (phone.trim() === "") {
-      setPhoneValid("Phone is required");
-      return false;
-    }
-    setPhoneValid("Please enter a valid phone");
-    return false;
-  };
-
-  const urlValidation = (url: string): boolean => {
-    if (
-      /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[-;:&=\+\$,\w]+@)?[A-Za-z0-9.-]+(:[0-9]+)?|(?:www.|[-;:&=\+\$,\w]+@)[A-Za-z0-9.-]+)((?:\/[\+~%\/.\w-_]*)?\??(?:[-\+=&;%@.\w_]*)#?(?:[\w]*))?)/.test(
-        url
-      )
-    ) {
-      setUrlValid("");
-      return true;
-    }
-    if (url.trim() === "") {
-      setUrlValid("Portfolio URL is required");
-      return false;
-    }
-    setUrlValid("Please enter a valid URL");
-    return false;
-  };
-
   return (
     <>
       <main id="content" role="main">
         <div
-          className="d-lg-flex position-relative hero"
+          className="d-lg-flex  position-relative hero"
           style={{ paddingBottom: "5%" }}
         >
-          <div className="container d-lg-flex  align-items-lg-center space-top-2 space-lg-0 min-vh-lg-100">
+          <div className="container d-lg-flex  align-items-lg-center space-2 min-vh-lg-100">
             <div className="w-md-100">
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-6 space-top-2">
                   <div className="mb-5 mt-11">
-                    <h1 className="display-4 mb-3">
-                      Learn the <span className="text-primary">skills</span> you
-                      need to <span className="text-primary">succeed</span>
-                      <span className="text-primary text-highlight-warning">
-                        <span
-                          className="js-text-animation"
-                          data-hs-typed-options='{
-                            "strings": ["startup.", "future.", "success."],
-                            "typeSpeed": 90,
-                            "loop": true,
-                            "backSpeed": 30,
-                            "backDelay": 2500
-                          }'
-                        ></span>
-                      </span>
-                    </h1>
+                    <h2 className="mb-3 text-primary">
+                      Pushing The Boundaries Of Learning.
+                    </h2>
+
                     <p className="lead">
-                      We are committed to training the next generation of tech
-                      superstars and help organisations upscale their workforce
-                      with the right talent
+                      We are a technology company focused on bridging the gap
+                      between demand for and access to quality education through
+                      the process of decentralizing the traditional method of
+                      learning.
                     </p>
                   </div>
 
-                  <Search
-                    search={"What do you want to learn"}
-                    button_text={"Search"}
-                    onSearchSubmit={searchCourse}
-                    searchData=""
-                  ></Search>
-                  <br />
-                  <br />
+                  <button
+                    className="btn btn-lg  btn-primary"
+                    style={{
+                      padding: "16px 32px",
+                      borderRadius: "4px",
+                      background: "rgb(15, 66, 164)",
+                    }}
+                  >
+                    View Solutions
+                  </button>
                 </div>
 
-                <div className="col-lg-6">
+                <div className="col-lg-6 space-top-2">
                   <img
                     src={homehero}
                     alt=""
-                    className="img-fluid img-fluid d-none d-lg-block"
-                    style={{
-                      position: "absolute",
-                      right: 0,
-                    }}
-                  />
-                  <img
-                    src={womanPic}
-                    alt=""
-                    className="img-fluid d-lg-none"
+                    className="img-fluid img-fluid "
                     style={{ width: "100%" }}
                   />
                 </div>
@@ -356,426 +160,290 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
           </div>
         </div>
 
-        <div className="container space-2 space-top-xl-3 space-bottom-lg-3">
-          <div className="w-md-80 w-lg-60 text-center mx-md-auto mb-5 mb-md-9">
-            <h2>Why Garden Academy</h2>
+        <div
+          className="container space-2 space-top-xl-3 space-bottom-lg-3"
+          style={{ position: "relative" }}
+        >
+          <div
+            className="container d-none d-lg-block"
+            style={{
+              position: "absolute",
+              top: "-50px",
+              background: "#fff",
+              boxShadow:
+                "2px 0px 2px rgba(0, 0, 0, 0.04), 0px 2px 2px rgba(0, 0, 0, 0.04)",
+              borderRadius: "4px",
+            }}
+          >
+            <div className="row m-5">
+              <div className="col-sm-3 text-center">
+                <h3>30,000</h3>
+                <p>Lifetime Users</p>
+              </div>
+              <div className="col-sm-3 text-center">
+                <h3>20+</h3>
+                <p>Programs</p>
+              </div>
+              <div className="col-sm-3 text-center">
+                <h3>5000</h3>
+                <p>Lifetime Graduates</p>
+              </div>
+              <div className="col-sm-3 text-center">
+                <h3>5</h3>
+                <p>Institutions Powered</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-md-80 w-lg-60 space-top-2 text-center mx-md-auto mb-5 mb-md-9">
+            <h2>Why Choose EduTech?</h2>
             <p>
-              By becoming a Garden Academy alumnus, you gain immediate access to
-              a variety of benefits.
+              Whether you’re an Academic Institution Proprietor looking to
+              improve your administrative & learning processes, a Business
+              Manager looking to upskill your workforce, an Individual searching
+              for access to education financing in Africa.
             </p>
           </div>
 
           <div className="row mx-n2 mx-lg-n3">
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard1} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Top Industry Facilitators</h3>
+                <h3 className="card-headers">Online Program Facilitation</h3>
                 <div className="card-body">
-                  Learn from Subject matter experts from different areas of the
-                  tech industry and gain the knowledge you need to rise to the
-                  top of your field.
+                  We provide all the vital logistical components for any online
+                  program, including comprehensive student support services from
+                  student enrollment through to graduation and beyond.
                 </div>
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard2} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Resume & Interview Prep</h3>
+                <h3 className="card-headers">Observation & Analysis</h3>
                 <div className="card-body">
-                  Gain valuable tips and hacks you need to create an appealing
-                  resume and navigate interview scenarios.
+                  We carry out extensive research, observation and analysis of
+                  tertiary educational systems with respect to the streamlining
+                  and improvement in delivery of learning content to students.
                 </div>
               </div>
             </div>
 
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard3} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Flexible Learning</h3>
+                <h3 className="card-headers">Creating Access To Learning</h3>
                 <div className="card-body">
-                  Learn wherever, whenever with quality content delivered to
-                  your device on demand. Powered by VigiLearnLMS™.
+                  We work to increase student access to degree granting
+                  institutions whilst mitigating the current constraints that
+                  exist for working adults within the African context.
                 </div>
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard4} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Flexible Payment Options</h3>
+                <h3 className="card-headers">Upholding Integrity & Quality</h3>
                 <div className="card-body">
-                  Take advantage of any of our available fee payment options and
-                  enjoy unrivalled ease of access.
+                  We are very committed to working with our partners to uphold
+                  the quality of learning and integrity of the educational
+                  system in Africa.
                 </div>
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard5} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">
-                  Globally Recognized <br /> Certificate
-                </h3>
+                <h3 className="card-headers">Change Management</h3>
                 <div className="card-body">
-                  Receive a certificate of international repute upon completion
-                  of your chosen learning path.
+                  We recognize that we are currently at the dawn of the digital
+                  age and many institutions are at the stage of transition from
+                  analog to digital formats and processes.
                 </div>
               </div>
-
-              {/* <!-- End Card --> */}
             </div>
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              {/* <!-- Card --> */}
-              <div className="card">
+              <div className="card-center">
                 <div className="card-icon">
                   <span className="span-icon">
-                    <img src={homecard6} alt="" />
+                    <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">
-                  Internship & Full-time <br /> opportunities
-                </h3>
+                <h3 className="card-headers">Technical Support</h3>
                 <div className="card-body">
-                  Put your newly acquired skills to use with access to work
-                  opportunities across the global tech industry.
+                  Our dedicated support team provides a breadth of services to
+                  support both students and course administrators every step of
+                  their interaction with our numerous platforms.
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        {programs?.length > 0 && (
-          <div style={{ background: "#E8EFFD", width: "100%" }}>
-            <div className="session-four container space-2 space-top-xl-3 space-bottom-lg-3">
-              <div className="w-md-80 text-center mx-md-auto mb-5 mb-md-9">
-                <h2>Available Programs</h2>
-                <p>
-                  Select any program from our library of carefully crafted
-                  programs guaranted to take you
-                </p>
-              </div>
-              <section>
-                <div className="row mx-n2 mx-lg-n3">
-                  <CourseCardGridView
-                    grid={4}
-                    programs={programs.slice(0, 3)}
-                  ></CourseCardGridView>
-                </div>
-              </section>
-
-              <div className="get-started">
-                <Link
-                  to={{
-                    pathname: "/programs",
-                    state: {
-                      data: programs.slice(0, 3),
-                    },
-                  }}
-                  className="btn programs-btn"
-                >
-                  <b>View All Programs</b>
-                </Link>
-              </div>
-            </div>
-          </div>
-        )}
         <div style={{ background: "#E8EFFD", width: "100%" }}>
-          <div className=" d-lg-flex position-relative session-three">
-            <div className=" container d-lg-flex align-items-lg-center space-top-2 space-lg-0 min-vh-lg-100">
-              <section className=" ">
-                <div className="img2-container mb-4">
-                  <img
-                    className="img-fluid img2-style"
-                    src={homehero2}
-                    alt=""
-                  />
-                </div>
-                <div className="container">
-                  <h1 className="font-weight-bold white-text">
-                    Looking To Improve Your Workforce?
-                  </h1>
-                  <p
+          <div className="session-four container space-top-2 space-top-xl-3 space-bottom-lg-2">
+            <div className="mx-md-auto mb-5 mb-md-9">
+              <h2>Our Solutions</h2>
+              <p>
+                We have a diverse range of solutions that are focused on
+                <br />
+                tackling specific challenge related to education.
+              </p>
+              <br />
+              <br />
+              <div className="row">
+                <div className="col-sm-4">
+                  <img className="img-fluid w-100" src={cityscapes} alt="" />
+                  <br />
+                  <br />
+                  <h6>Platform Delivery</h6>
+                  <h3>VIGILEARN</h3>
+                  <p>
+                    VigiLearn is and end-to-end suite of products designed
+                    toprovide a faster and more efficient way of managing
+                    administartive and academic related processes like payments,
+                    registration, invoicing, virtual classroom, e-library and
+                    many more.
+                  </p>
+                  <button
                     style={{
-                      marginTop: "20px",
-                      textAlign: "left",
-                      fontSize: "18px",
+                      border: "2px solid #0F42A4",
+                      boxSizing: "border-box",
+                      borderRadius: "4px",
+                      padding: "16px 32px",
+                      color: "#0F42A4",
                     }}
                   >
-                    The terrain of the global tech industry is rapidly evolving,
-                    and it is imperative that your workforce stays empowered and
-                    relevant in today’s world. By exposing your personnel to
-                    quality learning opportunities on Garden Academy, their
-                    horizons are broadened, and they become empowered to compete
-                    on the global playing field while contributing their newly
-                    acquired skills to the growth of your organization.
-                  </p>
-
-                  <div className="row" style={{ marginTop: "70px" }}>
-                    <div className="col-md-4 mb-3" style={{ padding: "0px" }}>
-                      <div className="card-icon">
-                        <span>
-                          <img src={rectangle} alt="" />
-                        </span>
-                      </div>
-                      <h3 className="card-headers white-text">Hire Talent</h3>
-                      <div className="card-body s3-para">
-                        Garden Academy harnesses the knowledge & experience of
-                        global industry experts and channels it into truly
-                        expansive courses that create the best talent who are
-                        primed and ready to take your organization to the next
-                        level.
-                      </div>
-                    </div>
-                    <div className="col-md-4 mb-3">
-                      <div className="card-icon">
-                        <span>
-                          <img src={rectangle} alt="" />
-                        </span>
-                      </div>
-                      <h3 className="card-headers white-text">
-                        Upskill Existing Staff
-                      </h3>
-                      <div className="card-body s3-para">
-                        With the best facilitators delivering quality content,
-                        Garden Academy vastly improves the skill level of staff
-                        groups. Your staff will gain the skills needed to
-                        improve business outcomes and contribute directly to
-                        your organization’s bottom line
-                      </div>
-                    </div>
-                    <div className="col-md-4 mb-3">
-                      <div className="card-icon">
-                        <span>
-                          <img src={rectangle} alt="" />
-                        </span>
-                      </div>
-                      <h3 className="card-headers white-text">
-                        Staff Onboarding
-                      </h3>
-                      <div className="card-body s3-para">
-                        With the best facilitators delivering quality content,
-                        Garden Academy vastly improves the skill level of staff
-                        groups. Your staff will gain the skills needed to
-                        improve business outcomes and contribute directly to
-                        your organization’s bottom line
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="get-started">
-                    <button className="btn get-started-btn">Get Started</button>
-                  </div>
+                    Learn More
+                  </button>
+                  <br />
+                  <br />
                 </div>
-              </section>
-            </div>
-          </div>
-        </div>
-
-        <div className="session-five d-lg-flex align-items-lg-center space-top-2 space-lg-0 min-vh-lg-100">
-          <div className="container">
-            <div className="row space-bottom-2">
-              <div className="col-lg-5 mt-5">
-                <hr
-                  className="mt-5"
-                  style={{
-                    width: "10%",
-                    border: "2px solid #0B2253",
-                    opacity: "0.5",
-                    margin: "0px",
-                  }}
-                />
-                <h3
-                  className="mt-3"
-                  style={{ fontSize: "36px", color: "#041644" }}
-                >
-                  Become a Facilitator
-                </h3>
-                <p className="mt-3 facillator-p">
-                  At any learning establishment, top-notch faculty are crucial
-                  to the success of that operation. At Garden Academy, the door
-                  is always open for facilitators who are experts in their
-                  chosen fields, and use engaging and interactive
-                  learner-focused approaches to teach and transfer practical
-                  skills
-                </p>
-                <br />
-                <p className="facillator-p">
-                  Do you have what it takes to train the next crop of tech
-                  superstars? Get in touch with us.
-                </p>
-                <br />
-                <br />
-                <button
-                  onClick={handleShow}
-                  className="btn btn-lg  btn-primary"
-                  style={{
-                    padding: "16px 32px",
-                    borderRadius: "4px",
-                    background: "#0F42A4",
-                  }}
-                >
-                  Become a Facillator
-                </button>
-              </div>
-
-              <div className="col-lg-7 col-xs-12 mt-5">
-                <img
-                  className="img-fluid d-lg-block"
-                  src={facilitator}
-                  alt="facillator"
-                />
+                <div className="col-sm-4">
+                  <img className="img-fluid w-100" src={cityscapes2} alt="" />
+                  <br />
+                  <br />
+                  <h6>Education Financing</h6>
+                  <h3>EDUCOLLECT</h3>
+                  <p>
+                    EduCollect is an education financing gateway that seeks to
+                    bridge the funding gap in the education system, by
+                    aggregating multiple funders to provide finance & support to
+                    students, parents and education service.
+                  </p>
+                  <br />
+                  <button
+                    style={{
+                      border: "2px solid #0F42A4",
+                      boxSizing: "border-box",
+                      borderRadius: "4px",
+                      padding: "16px 32px",
+                      color: "#0F42A4",
+                    }}
+                  >
+                    Learn More
+                  </button>
+                  <br />
+                  <br />
+                </div>
+                <div className="col-sm-4">
+                  <img className="img-fluid w-100" src={cityscapes3} alt="" />
+                  <br />
+                  <br />
+                  <h6>Content Development & Delivery</h6>
+                  <h3>GARDEN ACADEMY</h3>
+                  <p>
+                    Garden Academy is a training academy focused on delivering
+                    in-demand industry skills and ensuring enrollers are
+                    job-ready at completion of their respective programs.
+                  </p>
+                  <br />
+                  <br />
+                  <button
+                    style={{
+                      border: "2px solid #0F42A4",
+                      boxSizing: "border-box",
+                      borderRadius: "4px",
+                      padding: "16px 32px",
+                      color: "#0F42A4",
+                    }}
+                  >
+                    Learn More
+                  </button>
+                  <br />
+                  <br />
+                </div>
               </div>
             </div>
+            <section>
+              <div className="row mx-n2 mx-lg-n3"></div>
+            </section>
           </div>
         </div>
 
         {images.length > 0 && (
-          <div className=" container d-lg-flex  align-items-lg-center space-top-2 space-lg-3 space-lg-0 min-vh-lg-100">
+          <div className=" container d-lg-flex space-2 align-items-lg-center min-vh-lg-100">
             <div className="row">
               <div
-                className="col-lg-4 mt-5"
+                className="offset-lg-4 col-lg-4 mt-5"
                 style={{
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   alignItems: "center",
-                  flexDirection: "column",
                 }}
               >
-                <div>
-                  <h4 className="mt-3 testimonials-heading">Testimonials</h4>
-                  <p className="mt-3" style={{ fontSize: "35px" }}>
-                    Read what our users have to say...
-                  </p>
-                </div>
-
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-around",
-                    alignItems: "center",
-                    width: "100%",
-                  }}
-                >
-                  <span
-                    className="fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left shadow-soft rounded-circle ml-sm-n2"
-                    onClick={slideLeft}
-                    style={{
-                      background: index === 0 ? "#1354D3" : "",
-                      color: index === 0 ? "#fff" : "",
-                    }}
-                  ></span>
-                  <h4>
-                    {index + 1} / {images.length}
-                  </h4>
-                  <span
-                    className="fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"
-                    onClick={slideRight}
-                    style={{
-                      background: index === images.length - 1 ? "#1354D3" : "",
-                      color: index === images.length - 1 ? "#fff" : "",
-                    }}
-                  ></span>
-                </div>
+                <h2 className="text-center">Loved by Industry Leaders</h2>
               </div>
-
-              <div className="col-lg-8 mt-5">
+              <div className="col-lg-12 mt-5">
                 <div className="row">
-                  <div className="col-md-6 col-sm-12 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-                    <div
-                      className="card  shadow pt-3 pb-5 px-2"
-                      style={{
-                        boxShadow:
-                          "0px 4px 4px rgb(135 146 161 / 16%), 0px 6px 41px rgb(135 146 161 / 11%) !important",
-                        height: "auto",
-                        border: "none",
-                      }}
-                    >
-                      <div
-                        className="row card-icon"
-                        style={{ marginBottom: "0 !important" }}
-                      >
-                        <div className="col-3">
-                          <img
-                            className="avatar img-fluid"
-                            src={images[index].image}
-                            alt="avatar"
-                          />
-                        </div>
-                        <div className="col-9">
-                          <h4 style={{ margin: "0px" }}>
-                            {images[index].title}
-                          </h4>
-                          <p style={{ color: "#81909D" }}>
-                            {images[index].social}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="card-body" style={{ color: "#3A434B" }}>
-                        <hr />
-                        <br />
+                  <div className="col-md-4 col-sm-12 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
+                    <div>
+                      <div style={{ padding: "5%" }}>
+                        <h3>"</h3>
                         <p className="tip">
                           <span>{images[index].content}</span>
                           {images[index].content.length > 200
                             ? images[index].content.substring(0, 200) + "..."
                             : images[index].content}
                         </p>
+                        <br />
+                        <div className="row">
+                          <div className="col-9">
+                            <p style={{ margin: "0px" }}>
+                              {images[index].title}
+                            </p>
+                            <h5 style={{ color: "#81909D" }}>
+                              {images[index].social}
+                            </h5>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   {images.length - 1 >= index + 1 && (
-                    <div className="d-lg-block d-md-block d-none col-md-6 col-sm-12 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-                      <div
-                        className="card  shadow pt-3 pb-5 px-2"
-                        style={{
-                          boxShadow:
-                            "0px 4px 4px rgb(135 146 161 / 16%), 0px 6px 41px rgb(135 146 161 / 11%) !important",
-                          height: "auto",
-                          border: "none",
-                        }}
-                      >
-                        <div
-                          className="row card-icon"
-                          style={{ marginBottom: "0 !important" }}
-                        >
-                          <div className="col-3">
-                            <img
-                              className="avatar img-fluid"
-                              src={images[index + 1].image}
-                              alt="avatar"
-                            />
-                          </div>
-                          <div className="col-9">
-                            <h4 style={{ margin: "0px" }}>
-                              {images[index].title}
-                            </h4>
-                            <p style={{ color: "#81909D" }}>
-                              {images[index].social}
-                            </p>
-                          </div>
-                        </div>
-
-                        <div className="card-body" style={{ color: "#3A434B" }}>
-                          <hr />
-                          <br />
+                    <div className="d-lg-block d-md-block d-none col-md-4 col-sm-12 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
+                      <div>
+                        <div style={{ padding: "5%" }}>
+                          <h3>"</h3>
                           <p className="tip">
                             <span>{images[index + 1].content}</span>
                             {images[index + 1].content.length > 200
@@ -783,143 +451,79 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                                 "..."
                               : images[index + 1].content}
                           </p>
+                          <br />
+                          <div className="row">
+                            <div className="col-9">
+                              <p style={{ margin: "0px" }}>
+                                {images[index + 1].title}
+                              </p>
+                              <h5 style={{ color: "#81909D" }}>
+                                {images[index + 1].social}
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  {images.length - 1 >= index + 2 && (
+                    <div className="d-lg-block d-md-block d-none col-md-4 col-sm-12 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
+                      <div>
+                        <div style={{ padding: "5%" }}>
+                          <h3>"</h3>
+                          <p className="tip">
+                            <span>{images[index + 2].content}</span>
+                            {images[index + 2].content.length > 200
+                              ? images[index + 2].content.substring(0, 200) +
+                                "..."
+                              : images[index + 2].content}
+                          </p>
+                          <br />
+                          <div className="row">
+                            <div className="col-9">
+                              <p style={{ margin: "0px" }}>
+                                {images[index + 2].title}
+                              </p>
+                              <h5 style={{ color: "#81909D" }}>
+                                {images[index + 2].social}
+                              </h5>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   )}
                 </div>
               </div>
+              <div
+                className="offset-4 col-4 mt-5"
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  className="fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left shadow-soft rounded-circle ml-sm-n2"
+                  onClick={slideLeft}
+                  style={{
+                    background: index === 0 ? "#1354D3" : "",
+                    color: index === 0 ? "#fff" : "",
+                  }}
+                ></span>
+                <span
+                  className="fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"
+                  onClick={slideRight}
+                  style={{
+                    background: index === images.length - 1 ? "#1354D3" : "",
+                    color: index === images.length - 1 ? "#fff" : "",
+                  }}
+                ></span>
+              </div>
             </div>
           </div>
         )}
       </main>
-
-      <Modal
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-        show={showModal}
-        onHide={handleClose}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Become a facilitator
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form>
-            <div className="row">
-              <div className="col-sm-6">
-                <div className="js-form-message form-group">
-                  <label htmlFor="firstName" className="input-label">
-                    First name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="firstName"
-                    id="firstName"
-                    placeholder="eg. Nataly"
-                    required
-                    value={firstName}
-                    onChange={(e) => setFirstName(e.target.value)}
-                    onBlur={(e) => firstNameValidation(e.target.value)}
-                  />
-                  <p className="text-danger">{firstNameValid}</p>
-                </div>
-              </div>
-
-              <div className="col-sm-6">
-                <div className="js-form-message form-group">
-                  <label htmlFor={"lastName"} className="input-label">
-                    Last name
-                  </label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    name="lastName"
-                    id="lastName"
-                    placeholder="eg. Gaga"
-                    required
-                    value={lastName}
-                    onChange={(e) => setLastName(e.target.value)}
-                    onBlur={(e) => lastNameValidation(e.target.value)}
-                  />
-                  <p className="text-danger">{lastNameValid}</p>
-                </div>
-              </div>
-
-              <div className="col-sm-6">
-                <div className="js-form-message form-group">
-                  <label htmlFor={"firstName"} className="input-label">
-                    Phone Number
-                  </label>
-                  <input
-                    type="tel"
-                    className="form-control"
-                    name="firstName"
-                    id="firstName"
-                    placeholder="08045275625"
-                    required
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    onBlur={(e) => phoneValidation(e.target.value)}
-                  />
-                  <p className="text-danger">{phoneValid}</p>
-                </div>
-              </div>
-
-              <div className="col-sm-6">
-                <div className="js-form-message form-group">
-                  <label htmlFor={"lastName"} className="input-label">
-                    Email Address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    name="email"
-                    id="email"
-                    placeholder="admin@gmail.com"
-                    required
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    onBlur={(e) => emailValidation(e.target.value)}
-                  />
-                  <p className="text-danger">{emailValid}</p>
-                </div>
-              </div>
-
-              <div className="col-sm-12">
-                <div className="js-form-message form-group">
-                  <label htmlFor={"lastName"} className="input-label">
-                    Portfolio Link
-                  </label>
-                  <input
-                    type="url"
-                    className="form-control"
-                    name="url"
-                    id="url"
-                    placeholder="https://drive.google.com/jfjfjfjfjjffff"
-                    required
-                    value={url}
-                    onChange={(e) => setUrl(e.target.value)}
-                    onBlur={(e) => urlValidation(e.target.value)}
-                  />
-                  <p className="text-danger">{urlValid}</p>
-                </div>
-              </div>
-            </div>
-          </form>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleSubmit}>
-            Next
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </>
   );
 };
