@@ -310,8 +310,8 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </p>
               <br />
               <br />
-              <div className="row">
-                <div className="col-sm-4">
+              <div className="row" style={{justifyContent:"center"}}>
+                <div className="col-sm-5">
                   <img className="img-fluid w-100" src={cityscapes} alt="" />
                   <br />
                   <br />
@@ -338,7 +338,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                   <br />
                   <br />
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-5">
                   <img className="img-fluid w-100" src={cityscapes2} alt="" />
                   <br />
                   <br />
@@ -365,7 +365,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                   <br />
                   <br />
                 </div>
-                <div className="col-sm-4">
+                {/* <div className="col-sm-4">
                   <img className="img-fluid w-100" src={cityscapes3} alt="" />
                   <br />
                   <br />
@@ -391,7 +391,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                   </button>
                   <br />
                   <br />
-                </div>
+                </div> */}
               </div>
             </div>
             <section>
@@ -400,7 +400,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
           </div>
         </div>
 
-        {images.length > 0 && (
+        {/* {images.length > 0 && (
           <div className=" container d-lg-flex space-2 align-items-lg-center min-vh-lg-100">
             <div className="row">
               <div
@@ -522,7 +522,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </main>
     </>
   );

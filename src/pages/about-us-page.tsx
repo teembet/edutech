@@ -34,7 +34,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
             className=" container space-bottom-2  align-items-lg-center space-top-2  min-vh-lg-100 position-relative"
             style={{ paddingBottom: "5%" }}
           >
-            <h1 style={{ textAlign: "center", marginTop: "10px" }}>About Us</h1>
+            <h1 style={{ textAlign: "center", marginTop: "10px",color:"#041644" }}>About Us</h1>
 
             <p style={{ textAlign: "center" }}>
               Choose from any of our wide range of courses tailored to suit your
@@ -69,7 +69,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
           <div className=" space-top-3 space-bottom-2">
             <div className=" col-lg-12">
               <div style={{ textAlign: "center" }}>
-                <h3>Who we are</h3>
+                <h3 style={{color:"#041644"}}>Who we are</h3>
               </div>
 
               <div
@@ -77,7 +77,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                 style={{ justifyContent: "center", display: "flex" }}
               >
                 <div className="d-non col-lg-7">
-                  <h1 style={{ textAlign: "center" }}>
+                  <h1 style={{ textAlign: "center",color:"#041644" }}>
                     A Team Dedicated To Driving Sustainable Change Through
                     Education At All Levels{" "}
                   </h1>
@@ -105,7 +105,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                   style={{ border: "none", height: "auto" }}
                 >
                   <div className="card-icon">
-                    <span className="span-icon">
+                    <span className="">
                       <img src={shield} alt="" />
                     </span>
                   </div>
@@ -124,7 +124,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                   style={{ border: "none", height: "auto" }}
                 >
                   <div className="card-icon">
-                    <span className="span-icon">
+                    <span className="">
                       <img src={shield} alt="" />
                     </span>
                   </div>
@@ -144,7 +144,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                   style={{ border: "none", height: "auto" }}
                 >
                   <div className="card-icon">
-                    <span className="span-icon">
+                    <span className="">
                       <img src={shield} alt="" />
                     </span>
                   </div>
@@ -160,7 +160,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
             </div>
           </div>
         </div>
-        <div className="container space-2 space-top-xl-3 ">
+        {/* <div className="container space-2 space-top-xl-3 ">
           <div>
             <p style={{ textAlign: "center" }}>Our Team</p>
             <h2 style={{ textAlign: "center", color: "#041644" }}>
@@ -288,7 +288,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
               <br />
             </div>
           </div>
-        </div>
+        </div> */}
       </main>
     </>
   );

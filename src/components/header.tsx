@@ -82,7 +82,7 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                       </Link>
                     </li>
 
-                    <li className="nav-item dropdown">
+                    <li className="nav-item dropdown" style={{cursor:"pointer"}}>
                       <div
                         className="nav-item nav-link dropdown-toggle mr-md-2"
                         id="bd-versions"

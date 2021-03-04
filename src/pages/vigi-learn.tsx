@@ -9,7 +9,7 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
   return (
     <>
       <div className="hero-pages">
-        <h6 className="text-center">VIGILEARN</h6>
+        <h6 className="text-center text-primary" style={{fontSize:"16px"}}>VIGILEARN</h6>
         <h1 className="text-primary d-none d-sm-block text-center">
           Complete Education <br /> Management In A Box
         </h1>
@@ -65,7 +65,7 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h3 style={{ textAlign: "center" }}>Our Solutions</h3>
+            <h3 style={{ textAlign: "center",color:"#041644" }}>Our Solutions</h3>
 
             <br />
 
@@ -239,12 +239,12 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                       <button className="btn btn-md  btn-primary white-text">
                         Speak With Us
                       </button>
-                      <span
+                      {/* <span
                         className=" btn ml-3"
                         style={{ alignSelf: "center" }}
                       >
                         Download Product Information
-                      </span>
+                      </span> */}
                     </div>
                   </div>
                   <div className="tab-pane" id="tab_default_2">
