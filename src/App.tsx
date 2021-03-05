@@ -15,7 +15,6 @@ import AppVigiLearnPage from "./pages/vigi-learn";
 import ScrollToTop from "./helpers/scrollToTheTop";
 import AppBlogSingle from "./pages/blog-single";
 import AppEduCollectPage from "./pages/edu-collect";
-import AppGardenAcademy from "./pages/garden-academy";
 
 export interface AppProps {}
 
@@ -38,7 +37,6 @@ const App: React.SFC<AppProps> = () => {
           <Route path="/details" component={AppCourseDetails}></Route>
           <Route path="/vigi-learn" component={AppVigiLearnPage}></Route>
           <Route path="/edu-Collect" component={AppEduCollectPage}></Route>
-          <Route path="/garden-academy" component={AppGardenAcademy}></Route>
           <Route path="" component={AppNotFoundPage}></Route>
         </Switch>
         <AppFooter></AppFooter>

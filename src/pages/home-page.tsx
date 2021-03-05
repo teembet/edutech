@@ -8,8 +8,8 @@ import armor from "../assets/img/armor.svg";
 import person2 from "../assets/img/person2.svg";
 import cityscapes from "../assets/img/cityscapes.svg";
 import cityscapes2 from "../assets/img/cityscapes2.svg";
-import cityscapes3 from "../assets/img/cityscapes3.svg";
 import person1 from "../assets/img/person1.svg";
+import { Link } from "react-router-dom";
 
 export interface AppHomePageProps {
   images: any;
@@ -121,7 +121,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
           <div className="container d-lg-flex  align-items-lg-center space-2 min-vh-lg-100">
             <div className="w-md-100">
               <div className="row">
-                <div className="col-lg-6 space-top-2">
+                <div className="col-lg-6 ">
                   <div className="mb-5 mt-11">
                     <h2 className="mb-3 text-primary">
                       Pushing The Boundaries Of Learning.
@@ -135,7 +135,8 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     </p>
                   </div>
 
-                  <button
+                  <a
+                    href="https://edulearn.com"
                     className="btn btn-lg  btn-primary"
                     style={{
                       padding: "16px 32px",
@@ -144,7 +145,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     }}
                   >
                     View Solutions
-                  </button>
+                  </a>
                 </div>
 
                 <div className="col-lg-6 space-top-2">
@@ -194,7 +195,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </div>
             </div>
           </div>
-          <div className="w-md-80 w-lg-60 space-top-2 text-center mx-md-auto mb-5 mb-md-9">
+          <div className="w-md-80 w-lg-60 space-top-3 text-center mx-md-auto mb-5 mb-md-9">
             <h2>Why Choose EduTech?</h2>
             <p>
               Whether you’re an Academic Institution Proprietor looking to
@@ -310,8 +311,8 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </p>
               <br />
               <br />
-              <div className="row">
-                <div className="col-sm-4">
+              <div className="row" style={{ justifyContent: "center" }}>
+                <div className="col-sm-5">
                   <img className="img-fluid w-100" src={cityscapes} alt="" />
                   <br />
                   <br />
@@ -324,21 +325,24 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     registration, invoicing, virtual classroom, e-library and
                     many more.
                   </p>
-                  <button
+                  <br />
+                  <Link
+                    to="/vigi-learn"
                     style={{
                       border: "2px solid #0F42A4",
                       boxSizing: "border-box",
                       borderRadius: "4px",
                       padding: "16px 32px",
                       color: "#0F42A4",
+                      background: "#fff",
                     }}
                   >
                     Learn More
-                  </button>
+                  </Link>
                   <br />
                   <br />
                 </div>
-                <div className="col-sm-4">
+                <div className="col-sm-5">
                   <img className="img-fluid w-100" src={cityscapes2} alt="" />
                   <br />
                   <br />
@@ -351,21 +355,24 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     students, parents and education service.
                   </p>
                   <br />
-                  <button
+                  <br />
+                  <Link
+                    to="edu-collect"
                     style={{
                       border: "2px solid #0F42A4",
                       boxSizing: "border-box",
                       borderRadius: "4px",
                       padding: "16px 32px",
                       color: "#0F42A4",
+                      background: "#fff",
                     }}
                   >
                     Learn More
-                  </button>
+                  </Link>
                   <br />
                   <br />
                 </div>
-                <div className="col-sm-4">
+                {/* <div className="col-sm-4">
                   <img className="img-fluid w-100" src={cityscapes3} alt="" />
                   <br />
                   <br />
@@ -391,7 +398,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                   </button>
                   <br />
                   <br />
-                </div>
+                </div> */}
               </div>
             </div>
             <section>
@@ -400,7 +407,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
           </div>
         </div>
 
-        {images.length > 0 && (
+        {/* {images.length > 0 && (
           <div className=" container d-lg-flex space-2 align-items-lg-center min-vh-lg-100">
             <div className="row">
               <div
@@ -522,7 +529,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </div>
             </div>
           </div>
-        )}
+        )} */}
       </main>
     </>
   );

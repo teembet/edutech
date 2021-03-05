@@ -82,7 +82,10 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                       </Link>
                     </li>
 
-                    <li className="nav-item dropdown">
+                    <li
+                      className="nav-item dropdown"
+                      style={{ cursor: "pointer" }}
+                    >
                       <div
                         className="nav-item nav-link dropdown-toggle mr-md-2"
                         id="bd-versions"
@@ -115,17 +118,6 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                           to="/edu-collect"
                         >
                           Edu Collect
-                        </Link>
-
-                        <Link
-                          className={
-                            location.pathname === "/garden-academy"
-                              ? "dropdown-item active"
-                              : "dropdown-item"
-                          }
-                          to="/garden-academy"
-                        >
-                          Garden Academy
                         </Link>
                       </div>
                     </li>

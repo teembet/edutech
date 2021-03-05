@@ -6,7 +6,7 @@ const AppEduCollectPage: React.SFC<AppEduCollectPageProps> = () => {
   return (
     <>
       <div className="hero-pages">
-        <h6 className="text-center">EDUCOLLECT</h6>
+        <h6 className="text-center text-primary">EDUCOLLECT</h6>
         <h1 className="text-primary d-none d-sm-block text-center">
           Quick Access To Affordable
           <br />
