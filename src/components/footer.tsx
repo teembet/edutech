@@ -104,7 +104,7 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
                     </Link>
                   </li>
                   <li className="nav-item">
-                    <Link className="nav-link nav-footer" to="/faq">
+                    <Link className="nav-link nav-footer" to="/">
                       FAQs
                     </Link>
                   </li>

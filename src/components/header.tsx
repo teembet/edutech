@@ -132,7 +132,7 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                       </Link>
                     </li>
 
-                    <li className="hs-has-mega-menu navbar-nav-item">
+                    {/* <li className="hs-has-mega-menu navbar-nav-item">
                       <Link
                         id="homeMegaMenu"
                         className="hs-mega-menu-invoker nav-link"
@@ -140,7 +140,7 @@ const AppHeader: React.SFC<AppHeaderProps> = () => {
                       >
                         Partners
                       </Link>
-                    </li>
+                    </li> */}
 
                     <li className="hs-has-mega-menu navbar-nav-item">
                       <Link

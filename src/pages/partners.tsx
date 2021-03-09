@@ -38,7 +38,9 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
 
       <div className="container-fluid">
         <div className="row">
-          <div className="col-sm-2"></div>
+          <div className="col-sm-2">
+            {/* <img src={partners} className="img-fluid" alt="" /> */}
+          </div>
           <div className="col-sm-8">
             <img src={partners} className="img-fluid" alt="" />
             <br />

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Alert } from "react-bootstrap";
 import "../assets/css/contactpage.css";
 import Socials from "../components/socials";
 export interface AppContactUsPageProps {}
@@ -11,7 +12,18 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
   const [message, setMessage] = useState("");
   const [messageValid, setMessageValid] = useState("");
 
-  const handleSubmit = () => {
+  const [showAlert, setShowAlert] = useState({
+    text: "",
+    show: false,
+    color: "success",
+  });
+
+  const [buttonText, setButtonText] = useState({
+    text: "Submit",
+    disabled: false,
+  });
+
+  const handleSubmit = async () => {
     if (nameValidation(name) !== true) {
       return nameValidation(name);
     }
@@ -24,7 +36,46 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
       return messageValidation(message);
     }
 
-    alert("Success");
+    setButtonText({
+      text: "Loading ...",
+      disabled: true,
+    });
+
+    const response = await fetch(
+      "https://educollect-api.edutechng.com/api/MailingList/sendmail",
+      {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        mode: "cors", // no-cors, *cors, same-origin
+        cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify({
+          recipientEmail: "support@edutechng.com",
+          name: "Edutech Support Page",
+          message: `name :   ${name}
+                    <br/>
+                    email:   ${email}
+                    <br/>
+                    message: ${message}`,
+        }), // body data type must match "Content-Type" header
+      }
+    );
+
+    setButtonText({
+      text: "Submit",
+      disabled: false,
+    });
+
+    setShowAlert({
+      text: "Contact us information was submitted successfully.",
+      show: true,
+      color: "success",
+    });
   };
 
   const nameValidation = (fieldValue: string): boolean => {
@@ -71,6 +122,11 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
 
     if (fieldValue.trim().length < 50) {
       setMessageValid(`Message needs to be at least fifty characters`);
+      return false;
+    }
+
+    if (fieldValue.trim().length > 300) {
+      setMessageValid(`Message is limited to 300 words, keep it short`);
       return false;
     }
 
@@ -126,6 +182,20 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
               <form className="js-validate">
                 <div className=" p-4 p-md-6">
                   <div className="row">
+                    <div className="col-sm-12">
+                      <Alert
+                        show={showAlert.show}
+                        variant={showAlert.color}
+                        onClose={() =>
+                          setShowAlert({ ...showAlert, show: false })
+                        }
+                        dismissible
+                      >
+                        <Alert.Heading className="text-light">
+                          {showAlert.text}
+                        </Alert.Heading>
+                      </Alert>
+                    </div>
                     <div className="col-sm-12">
                       <div className="js-form-message form-group">
                         <label htmlFor="firstName" className="input-label">
@@ -196,8 +266,9 @@ const AppContactUsPage: React.SFC<AppContactUsPageProps> = () => {
                     style={{ background: "#0F42A4", borderRadius: "2px" }}
                     className="btn btn-block btn-primary transition-3d-hover"
                     onClick={handleSubmit}
+                    disabled={buttonText.disabled}
                   >
-                    Submit
+                    {buttonText.text}
                   </button>
                 </div>
               </form>
