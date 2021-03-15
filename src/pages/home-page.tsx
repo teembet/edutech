@@ -162,7 +162,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
         </div>
 
         <div
-          className="container space-2 space-top-xl-3 space-bottom-lg-3"
+          className="container space-1 space-top-xl-2 space-bottom-lg-2"
           style={{ position: "relative" }}
         >
           <div
@@ -213,7 +213,9 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Online Program Facilitation</h3>
+                <h3 className="card-headers text-center">
+                  Online Program Facilitation
+                </h3>
                 <div className="card-body">
                   We provide all the vital logistical components for any online
                   program, including comprehensive student support services from
@@ -228,7 +230,9 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Observation & Analysis</h3>
+                <h3 className="card-headers text-center">
+                  Observation & Analysis
+                </h3>
                 <div className="card-body">
                   We carry out extensive research, observation and analysis of
                   tertiary educational systems with respect to the streamlining
@@ -244,7 +248,9 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Creating Access To Learning</h3>
+                <h3 className="card-headers text-center">
+                  Creating Access To Learning
+                </h3>
                 <div className="card-body">
                   We work to increase student access to degree granting
                   institutions whilst mitigating the current constraints that
@@ -253,13 +259,15 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
               </div>
             </div>
             <div className="col-sm-6 col-lg-4 px-2 px-lg-3 mb-3 mb-lg-0 mt-3">
-              <div className="card-center">
+              <div className="card-center text-center">
                 <div className="card-icon">
                   <span className="span-icon">
                     <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Upholding Integrity & Quality</h3>
+                <h3 className="card-headers text-center">
+                  Upholding Integrity & Quality
+                </h3>
                 <div className="card-body">
                   We are very committed to working with our partners to uphold
                   the quality of learning and integrity of the educational
@@ -274,7 +282,7 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                     <img src={armor} alt="" />
                   </span>
                 </div>
-                <h3 className="card-headers">Change Management</h3>
+                <h3 className="card-headers text-center">Change Management</h3>
                 <div className="card-body">
                   We recognize that we are currently at the dawn of the digital
                   age and many institutions are at the stage of transition from
@@ -303,22 +311,25 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
         <div style={{ background: "#E8EFFD", width: "100%" }}>
           <div className="session-four container space-top-2 space-top-xl-3 space-bottom-lg-2">
             <div className="mx-md-auto mb-5 mb-md-9">
-              <h2>Our Solutions</h2>
-              <p>
-                We have a diverse range of solutions that are focused on
-                <br />
-                tackling specific challenge related to education.
-              </p>
+              <div className="text-center">
+                <h2>Our Solutions</h2>
+                <p>
+                  We have a diverse range of solutions that are focused on
+                  <br />
+                  tackling specific challenge related to education.
+                </p>
+              </div>
+
               <br />
               <br />
-              <div className="row" style={{ justifyContent: "center" }}>
-                <div className="col-sm-5">
+              <div className="row">
+                <div className="col-sm-6">
                   <img className="img-fluid w-100" src={cityscapes} alt="" />
                   <br />
                   <br />
                   <h6>Platform Delivery</h6>
                   <h3>VIGILEARN</h3>
-                  <p>
+                  <p style={{ width: "80%" }}>
                     VigiLearn is and end-to-end suite of products designed
                     toprovide a faster and more efficient way of managing
                     administartive and academic related processes like payments,
@@ -342,13 +353,13 @@ const AppHomePage: React.SFC<AppHomePageProps> = ({ history }) => {
                   <br />
                   <br />
                 </div>
-                <div className="col-sm-5">
+                <div className="col-sm-6">
                   <img className="img-fluid w-100" src={cityscapes2} alt="" />
                   <br />
                   <br />
                   <h6>Education Financing</h6>
                   <h3>EDUCOLLECT</h3>
-                  <p>
+                  <p style={{ width: "80%" }}>
                     EduCollect is an education financing gateway that seeks to
                     bridge the funding gap in the education system, by
                     aggregating multiple funders to provide finance & support to

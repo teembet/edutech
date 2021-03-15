@@ -52,7 +52,7 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
                       <span className="media">
                         <span className="fas fa-envelope-open mt-1 mr-2"></span>
                         <span className="media-body">
-                          contactus@edulearn.com
+                          Info@gardenacademy.io
                         </span>
                       </span>
                     </a>
@@ -70,7 +70,7 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
               </div>
 
               <div className="col-md-3">
-                <h6>PROGRAMS</h6>
+                <h6>CATEGORIES</h6>
 
                 <ul className="nav nav-sm nav-x-0 nav-white flex-column">
                   <li className="nav-item">
@@ -81,11 +81,6 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
                   <li className="nav-item">
                     <a className="nav-link nav-footer" href="/">
                       EduCollect
-                    </a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link nav-footer" href="/">
-                      Garden Academy
                     </a>
                   </li>
                 </ul>
@@ -150,14 +145,14 @@ const AppFooter: React.SFC<AppFooterProps> = () => {
               className="d-none d-lg-block"
               style={{ padding: "2rem 0", color: "#051A52" }}
             >
-              © 2021 Garden Academy - All Rights Reserved.
+              © 2021 Edutech - All Rights Reserved.
             </p>
 
             <p
               className="d-lg-none"
               style={{ padding: "2rem 0", color: "#051A52" }}
             >
-              © 2021 Garden Academy - <br />
+              © 2021 Edutech - <br />
               All Rights Reserved.
             </p>
           </div>

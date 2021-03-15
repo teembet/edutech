@@ -1,4 +1,5 @@
 import React from "react";
+import { Tab, Tabs } from "react-bootstrap";
 
 import "../assets/css/vigilearn.css";
 import armor from "../assets/img/vector.svg";
@@ -9,7 +10,9 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
   return (
     <>
       <div className="hero-pages">
-        <h6 className="text-center text-primary" style={{fontSize:"16px"}}>VIGILEARN</h6>
+        <h6 className="text-center text-primary" style={{ fontSize: "16px" }}>
+          VIGILEARN
+        </h6>
         <h1 className="text-primary d-none d-sm-block text-center">
           Complete Education <br /> Management In A Box
         </h1>
@@ -65,201 +68,177 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-12">
-            <h3 style={{ textAlign: "center",color:"#041644" }}>Our Solutions</h3>
+            <h3 style={{ textAlign: "center", color: "#041644" }}>
+              Our Solutions
+            </h3>
 
             <br />
 
-            <div className="tabbable-panel">
-              <div className="tabbable-line">
-                <ul
-                  className="nav nav-tabs "
-                  style={{ justifyContent: "space-evenly" }}
-                >
-                  <li>
-                    <a href="#tab_default_1" data-toggle="tab">
-                      Learning Management System
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#tab_default_2" data-toggle="tab">
-                      Apply Portal
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#tab_default_3" data-toggle="tab">
-                      Student Information System
-                    </a>
-                  </li>
-                </ul>
-
-                <div className="tab-content">
-                  <div className="tab-pane active" id="tab_default_1">
-                    <div className="container ">
-                      <div className="row space-2">
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Virtual Classroom</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
+            <Tabs
+              defaultActiveKey="home"
+              transition={false}
+              id="noanim-tab-example"
+              style={{ display: "flex", justifyContent: "space-evenly" }}
+            >
+              <Tab eventKey="home" title="Learning Management System">
+                <div className="container ">
+                  <div className="row space-2">
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
                         </div>
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">User Management</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Big Data Analytics</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Social Networking</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Service & Support</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="col-sm-6 col-lg-4 ">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Learning Platform</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        <div className="col-sm-6 col-lg-4 offset-sm-3 offset-lg-4">
-                          <div className="card-center">
-                            <div className="card-icon">
-                              <span className="span-icons">
-                                <img src={armor} alt="" />
-                              </span>
-                            </div>
-                            <h3 className="card-headers">Customization</h3>
-                            <div>
-                              <p className="text-dark text-center">
-                                Feel free to use these in any private or public
-                                space. Please do not repackage and redistribute
-                                these as your own. If you want to include them
-                                in your design tool like Origami or Framer,
-                                contact us!
-                              </p>
-                            </div>
-                          </div>
+                        <h3 className="card-headers">Virtual Classroom</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
                         </div>
                       </div>
                     </div>
-                    <div
-                      className="row mt-5"
-                      style={{ justifyContent: "center" }}
-                    >
-                      <button className="btn btn-md  btn-primary white-text">
-                        Speak With Us
-                      </button>
-                      {/* <span
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">User Management</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">Big Data Analytics</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">Social Networking</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">Service & Support</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-sm-6 col-lg-4 ">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">Learning Platform</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-sm-6 col-lg-4 offset-sm-3 offset-lg-4">
+                      <div className="card-center">
+                        <div className="card-icon">
+                          <span className="span-icons">
+                            <img src={armor} alt="" />
+                          </span>
+                        </div>
+                        <h3 className="card-headers">Customization</h3>
+                        <div>
+                          <p className="text-dark text-center">
+                            Feel free to use these in any private or public
+                            space. Please do not repackage and redistribute
+                            these as your own. If you want to include them in
+                            your design tool like Origami or Framer, contact us!
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="row mt-5" style={{ justifyContent: "center" }}>
+                  <button className="btn btn-md  btn-primary white-text">
+                    Speak With Us
+                  </button>
+                  {/* <span
                         className=" btn ml-3"
                         style={{ alignSelf: "center" }}
                       >
                         Download Product Information
                       </span> */}
-                    </div>
-                  </div>
-                  <div className="tab-pane" id="tab_default_2">
-                    <p>Tab 2.</p>
-                    <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    </p>
-                  </div>
-                  <div className="tab-pane" id="tab_default_3">
-                    <p>Tab 3.</p>
-                    <p>Consectetur deleniti quisquam natus eius commodi.</p>
-                  </div>
                 </div>
-              </div>
-            </div>
+                <br />
+                <br />
+              </Tab>
+              <Tab eventKey="profile" title="Apply Portal">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                Veritatis, neque nisi! Officia sapiente qui eos nostrum delectus
+                aliquid, explicabo nulla libero aliquam vitae quasi. Ad earum ab
+                suscipit sint voluptatum.
+              </Tab>
+              <Tab eventKey="contact" title="Student Information System">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque
+                reprehenderit dicta veniam accusantium voluptatibus quo corrupti
+                quidem qui quae iusto perspiciatis quis rerum earum distinctio,
+                aperiam, explicabo illo cum? Repellat.
+              </Tab>
+            </Tabs>
           </div>
         </div>
       </div>
