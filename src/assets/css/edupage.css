@@ -1,0 +1,9 @@
+.eduhero {
+  background-image: url(../img/edu-hero.svg);
+  background-size: cover;
+}
+.laptopbg {
+  background-color: #e9fafb;
+  background-image: url(../img/laptopbg.svg);
+  background-size: cover;
+}
