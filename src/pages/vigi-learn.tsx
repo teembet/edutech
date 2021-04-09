@@ -8,6 +8,10 @@ import "../assets/css/vigilearn.css";
 import laptop from "../assets/img/Macbook.png";
 import learning from "../assets/img/learning.svg";
 import exam from "../assets/img/exam.svg";
+import exam2 from "../assets/img/exam2.svg";
+import education2 from "../assets/img/education2.svg";
+import download1 from "../assets/img/download1.svg";
+import application from "../assets/img/application 1.svg";
 import information from "../assets/img/information.svg";
 import apply from "../assets/img/apply.svg";
 import virtual_classroom from "../assets/img/virtual_classroom.svg";
@@ -104,7 +108,10 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                     border: selected === "learning" ? "1px solid #0F42A4" : "",
                   }}
                 >
-                  <img src={learning} alt="" />
+                  <img
+                    src={selected === "learning" ? learning : download1}
+                    alt=""
+                  />
                   <br />
                   Learning Management System
                 </button>
@@ -119,7 +126,10 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                     border: selected === "apply" ? "1px solid #0F42A4" : "",
                   }}
                 >
-                  <img src={apply} alt="" />
+                  <img
+                    src={selected === "apply" ? application : apply}
+                    alt=""
+                  />
                   <br />
                   Apply Portal
                 </button>
@@ -135,7 +145,10 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                       selected === "information" ? "1px solid #0F42A4" : "",
                   }}
                 >
-                  <img src={information} alt="" />
+                  <img
+                    src={selected === "information" ? education2 : information}
+                    alt=""
+                  />
                   <br />
                   Student Information System
                 </button>
@@ -150,7 +163,7 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                     border: selected === "exam" ? "1px solid #0F42A4" : "",
                   }}
                 >
-                  <img src={exam} alt="" />
+                  <img src={selected === "exam" ? exam2 : exam} alt="" />
                   <br />
                   Exam Portal
                 </button>
