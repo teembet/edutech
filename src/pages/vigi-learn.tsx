@@ -100,6 +100,8 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                   className="btn btn-block nbtn transition-3d-hover card-hover"
                   style={{
                     background: selected === "learning" ? "#E8EFFD" : "#fff",
+                    color: selected === "learning" ? "#0F42A4" : "",
+                    border: selected === "learning" ? "1px solid #0F42A4" : "",
                   }}
                 >
                   <img src={learning} alt="" />
@@ -113,6 +115,8 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                   className="btn btn-block nbtn transition-3d-hover card-hover"
                   style={{
                     background: selected === "apply" ? "#E8EFFD" : "#fff",
+                    color: selected === "apply" ? "#0F42A4" : "",
+                    border: selected === "apply" ? "1px solid #0F42A4" : "",
                   }}
                 >
                   <img src={apply} alt="" />
@@ -126,6 +130,9 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                   className="btn btn-block nbtn transition-3d-hover card-hover"
                   style={{
                     background: selected === "information" ? "#E8EFFD" : "#fff",
+                    color: selected === "information" ? "#0F42A4" : "",
+                    border:
+                      selected === "information" ? "1px solid #0F42A4" : "",
                   }}
                 >
                   <img src={information} alt="" />
@@ -139,6 +146,8 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
                   className="btn btn-block nbtn transition-3d-hover card-hover"
                   style={{
                     background: selected === "exam" ? "#E8EFFD" : "#fff",
+                    color: selected === "exam" ? "#0F42A4" : "",
+                    border: selected === "exam" ? "1px solid #0F42A4" : "",
                   }}
                 >
                   <img src={exam} alt="" />
@@ -149,27 +158,28 @@ const AppVigiLearnPage: React.SFC<AppVigiLearnPageProps> = () => {
             </div>
           </div>
         </div>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <a
-            href={
-              selected === "learning"
-                ? "https://youtu.be/jqEJfe1Y7GY"
-                : selected === "apply"
-                ? "https://youtu.be/RJfsSMZAFkg"
-                : "https://youtu.be"
-            }
-            rel="noreferrer"
-            target="_blank"
-          >
-            <img className="img-fluid" src={laptop} alt="" />
-          </a>
+        <div className=" container">
+          <div className="row">
+            <div className="offset-sm-1 col-sm-10">
+              <div className="embed-responsive embed-responsive-16by9">
+                <iframe
+                  src={
+                    selected === "learning"
+                      ? "https://www.youtube.com/embed/jqEJfe1Y7GY"
+                      : selected === "apply"
+                      ? "https://www.youtube.com/embed/RJfsSMZAFkg"
+                      : selected === "information"
+                      ? "https://www.youtube.com/embed/3B6THzddTPk"
+                      : "https://www.youtube.com/embed/9ZeapvCLfgM"
+                  }
+                  frameBorder="0"
+                  allow="autoplay; encrypted-media"
+                  allowFullScreen
+                  title="video"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <Fade left>
