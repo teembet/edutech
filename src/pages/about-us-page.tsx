@@ -103,7 +103,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                     className="card card-hover pt-4 px-4"
                     style={{
                       border: "none",
-                      height: "auto",
+
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -128,10 +128,8 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                       className="card-body"
                       style={{ alignSelf: "flex-start", textAlign: "left" }}
                     >
-                      Through the deployment of our custom platforms in
-                      partnership with progressive global Institutions, we have
-                      been able to power more than 20 programs & courses, which
-                      has led to more than 20,000 enrolments.
+                      Leading the charge towards the proliferation of education
+                      globally through technology
                     </div>
                   </div>
                 </div>
@@ -140,7 +138,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                     className="card card-hover pt-4 px-4"
                     style={{
                       border: "none",
-                      height: "auto",
+
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -163,10 +161,9 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                       className="card-body"
                       style={{ alignSelf: "flex-start", textAlign: "left" }}
                     >
-                      Through the deployment of our custom platforms in
-                      partnership with progressive global Institutions, we have
-                      been able to power more than 20 programs & courses, which
-                      has led to more than 20,000 enrolments.
+                      To ensure the continuity of education across all levels
+                      worldwide through the implementation of the best learning
+                      technology
                     </div>
                   </div>
                 </div>
@@ -176,7 +173,7 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                     className="card card-hover pt-4 px-4"
                     style={{
                       border: "none",
-                      height: "auto",
+
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -193,16 +190,16 @@ const AppAboutUsPage: React.SFC<AppAboutUsPageProps> = () => {
                       className="card-headers"
                       style={{ alignSelf: "flex-start" }}
                     >
-                      Our Promise
+                      Our Goals
                     </h3>
                     <div
                       className="card-body"
                       style={{ alignSelf: "flex-start", textAlign: "left" }}
                     >
-                      Through the deployment of our custom platforms in
-                      partnership with progressive global Institutions, we have
-                      been able to power more than 20 programs & courses, which
-                      has led to more than 20,000 enrolments.
+                      Our goal is to provide a better learning experience for
+                      individuals and drive effective management of all related
+                      processes to significantly improve learning delivery for
+                      institutions.
                     </div>
                   </div>
                 </div>

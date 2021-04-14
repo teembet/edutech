@@ -1,12 +1,63 @@
-import partners from "../assets/img/partners.svg";
 // @ts-ignore
 import Fade from "react-reveal/Fade";
 // @ts-ignore
 import Zoom from "react-reveal/Zoom";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+
+import partners from "../assets/img/partners.svg";
+import oau from "../assets/img/oau.svg";
+import babcock from "../assets/img/babcock.svg";
+import left from "../assets/img/left.svg";
+import right from "../assets/img/right.svg";
+
 export interface AppPartnersProps {}
 
 const AppPartners: React.SFC<AppPartnersProps> = () => {
+  const [images] = useState([
+    {
+      image: partners,
+      title: "Ahmadu Bello University",
+      url: "https://abudlc.edu.ng/",
+      content:
+        "Since our partnership with this prestigious institution began in 2015, we have helped solve the problem of access to quality education by facilitating the successful deployment of Africa’s first online MBA program after which, has come the launch of several other degree programs across both undergraduate and postgraduate levels.",
+    },
+    {
+      image: oau,
+      title: "Obafemi Awolowo University",
+      url: "http://online.oaucdl.edu.ng/",
+      content:
+        "After partnering with this foremost tertiary institution in 2012, EduTech powered the seamless deployment of multiple undergraduate online degree programs which have given thousands of Africans the opportunity to further their education wherever, whenever.   ",
+    },
+    {
+      image: babcock,
+      title: "Babcock University",
+      url: "https://www.babcock.edu.ng/",
+      content:
+        "To further drive EduTech’s mandate of breaking barriers in accessing quality education, we partnered with the 2nd highest ranked private university in Nigeria in order to launch multiple degree programs across undergraduate and postgraduate levels.",
+    },
+  ]);
+
+  const [index, setIndex] = useState(0);
+
+  const slideRight = () => {
+    const nextIndex = index + 1;
+    if (nextIndex > images.length - 1) {
+      setIndex(0);
+    } else {
+      setIndex(nextIndex);
+    }
+  };
+
+  const slideLeft = () => {
+    const nextIndex = index - 1;
+    if (nextIndex < 0) {
+      setIndex(images.length - 1);
+    } else {
+      setIndex(nextIndex);
+    }
+  };
+
   return (
     <>
       <Zoom>
@@ -63,8 +114,45 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
         <div className="space-1 text-center">
           <h5>OUR PARTNERS</h5>
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            width: "100%",
+          }}
+        >
+          <span
+            className="fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-left shadow-soft rounded-circle ml-sm-n2 d-block d-lg-none d-md-none"
+            onClick={slideLeft}
+            // style={{
+            //   background: index === 0 ? "#1354D3" : "",
+            //   color: index === 0 ? "#fff" : "",
+            // }}
+          ></span>
+          <h4 className="d-block d-lg-none d-md-none">
+            {index + 1} / {images.length}
+          </h4>
+          <span
+            className="fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4 d-block d-lg-none d-md-none"
+            onClick={slideRight}
+            // style={{
+            //   background: index === images.length - 1 ? "#1354D3" : "",
+            //   color: index === images.length - 1 ? "#fff" : "",
+            // }}
+          ></span>
+        </div>
+        <br className="d-block d-lg-none d-md-none" />
+        <br className="d-block d-lg-none d-md-none" />
         <div className="row">
-          <div className="col-sm-2 d-none d-lg-block d-md-block left-carosel">
+          <div
+            className="col-sm-2 d-none d-lg-block d-md-block left-carosel"
+            style={{
+              backgroundImage: `url(${
+                images[index == 0 ? images.length - 1 : index - 1].image
+              })`,
+            }}
+          >
             <div
               className=""
               style={{
@@ -74,18 +162,32 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
                 height: "100%",
               }}
             >
-              <span className="fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"></span>
+              <span
+                className="fa fa-arrow-left slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"
+                onClick={slideLeft}
+                // style={{
+                //   background: index === 0 ? "#1354D3" : "",
+                //   color: index === 0 ? "#fff" : "",
+                // }}
+              ></span>
             </div>
           </div>
           <div className="col-sm-8">
             <img
-              src={partners}
+              src={images[index].image}
               style={{ width: "100%" }}
               className="img-fluid"
               alt=""
             />
           </div>
-          <div className="col-sm-2 d-none d-lg-block d-md-block right-carosel">
+          <div
+            className="col-sm-2 d-none d-lg-block d-md-block right-carosel"
+            style={{
+              backgroundImage: `url(${
+                images[index + 1 == images.length ? 0 : index + 1].image
+              })`,
+            }}
+          >
             <div
               className=""
               style={{
@@ -95,7 +197,14 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
                 height: "100%",
               }}
             >
-              <span className="fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"></span>
+              <span
+                className="fa fa-arrow-right slick-arrow slick-arrow-primary-white slick-arrow-right shadow-soft rounded-circle mr-sm-2 mr-xl-4"
+                onClick={slideRight}
+                // style={{
+                //   background: index === images.length - 1 ? "#1354D3" : "",
+                //   color: index === images.length - 1 ? "#fff" : "",
+                // }}
+              ></span>
             </div>
           </div>
         </div>
@@ -104,16 +213,9 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
           <div className="col-sm-8">
             <br />
             <br />
-            <h3 className="text-center">Ahmadu Bello University</h3>
+            <h3 className="text-center">{images[index].title}</h3>
             <br />
-            <p className="text-center">
-              Since our partnership with this prestigious institution began in
-              2015, we have helped solve the problem of access to quality
-              education by facilitating the successful deployment of Africa’s
-              first online MBA program after which, has come the launch of
-              several other degree programs across both undergraduate and
-              postgraduate levels.
-            </p>
+            <p className="text-center">{images[index].content}</p>
             <br />
             <div
               style={{
@@ -124,7 +226,7 @@ const AppPartners: React.SFC<AppPartnersProps> = () => {
               }}
             >
               <a
-                href="https://abudlc.edu.ng/"
+                href={images[index].url}
                 target="_blank"
                 rel="noreferrer"
                 className="btn btn-lg btn-outline-primary"
